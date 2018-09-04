@@ -6,7 +6,7 @@ var question01 = {
     choices: ["Mercury", "Ferrari", "Lincoln", "Aston Martin"],
     answer: "Ferrari",
     wrong: ["Mercury", "Lincoln", "Aston Martin"]
-}; 
+};
 
 //The Model T was only available in which color?
 var question02 = {
@@ -159,6 +159,8 @@ var question20 = {
     answer: "France",
     wrong: ["Belgium", "Austria", "Switzerland"],
 }
+//Guesses
+var guess;
 
 //Right Answer
 var rightAnswer;
@@ -166,8 +168,126 @@ var rightAnswer;
 //Wrong Answer
 var wrongAnswer;
 
+//Unanswered Questions
+var unanswered;
+
 //Timer
-var timer;
+var count = 120;
 
 //Restart Game
 var reset;
+
+
+//Hide Quiz Page at Start and only "Intro"
+//start click function
+//start function = shows all questions, shows and starts clock 
+//coundown
+
+
+//Reset Game state for every new game
+
+//On load / show welcome screen / hide quiz form
+
+//Player presses start button (build timer into button)
+
+//Player chooses which radio button they think is correct
+
+//The answer is stored till later
+
+//Player clicks submit button
+
+//Game results are shown / hide quiz / have replay button.
+
+//THIS IS THE GAME STATE
+//
+$( document ).ready(function() {
+    console.log( "ready!" ); 
+
+//Function to show quiz questions
+function quiz () {
+//Start interval timer
+//Reset guesses to 0
+//Reset right answers to 0
+//Reset wrong answer to 0
+//Reset unanswered questions to 0
+}
+
+//Click function for Player input
+function playerInput () {
+    //Player can only guess one question at a time
+    //Once player guesses, store answer till the end.
+}
+
+//Results of Player function
+function results () {
+    //Hide quiz questions
+    //Show results of quiz
+    //Prime reset button
+}
+
+});
+
+$(document).ready(function(){
+    //Console Log READY
+    console.log("READY");
+    //Start Game
+    $("#start-button").click(function(){
+  // ----------------------------------------------------------------
+   // declaring the value for the timer to 60 seconds
+   // hide the start button and rules
+        var number = 50;
+        alert("The let game begin!");
+      $("#start-button").on("click", start);  // starts the games 
+      $("#submit").on("click", finish);  // submits answers and finishes the game
+      $("#restart").on("click", restart);  // restarts the games 
+  // ----------------------------------------------------------------
+  // functions
+      function start(){
+          counter = setInterval(timer, 1000);
+          showMe(".question");
+          showMe(".answers");
+          showMe("#submit");
+          hideMe("#start-button");
+          hideMe(".rules");
+          hideMe("#restart");
+          hideMe("#results");
+      }
+      function timer(){
+        number-- // decrements the timer by 1
+        $("#show-number").html("<h2>" + number + "</h2>" );
+        if (number === 0){
+          alert("Times Up!")
+          stop(); // calls the stop function
+        }
+      }
+      function stop(){
+          clearInterval(counter); // stops the timer
+          $("#results").show();
+          $("#restart").show();
+          $(".question").hide();
+          $(".answers").hide();
+          $("#submit").hide();
+      }
+      function finish(){
+          number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
+          clearInterval(counter); // stops the timer
+          timer();
+      }
+  
+      function restart(){
+          number = 50;
+          start();
+      }
+  
+      function hideMe(e) {
+          $(e).hide();
+      }
+      function showMe(e) {
+          $(e).show();
+      }
+  
+  // ----------------------------------------------------------------
+  //calling functions
+        start(); // calls the start function
+    });
+  });
