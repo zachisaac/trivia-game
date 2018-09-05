@@ -1,293 +1,277 @@
-//Javascript Car and Racing Trivia
+var time = 20;
+var intervalId = "";
+var correct = 0;
+var incorrect = 0;
+var unanswered = 0;
+var arrayFinder = 0;
 
-//Which car manufactuerer was supposed to be sold to Ford in 1962 for 12m dollars?
+
 var question01 = {
-    question: "Which car manufactuerer was going to be sold to Ford in 1963?",
-    choices: ["Mercury", "Ferrari", "Lincoln", "Aston Martin"],
-    answer: "Ferrari",
-    wrong: ["Mercury", "Lincoln", "Aston Martin"]
+	question: "What car manufactuerer was supposed to be sold to Ford in 1963?",
+	answers: ["Mercury", "Ferrari", "Lincoln", "Aston Martin"],
+	values: ["incorrect", "correct", "incorrect", "incorrect"],
+	correct: "Ferrari",
+	image: "assets/images/enzo.jpg"
 };
-
-//The Model T was only available in which color?
 var question02 = {
-    question: "The Model T was only available in which color?",
-    choices: ["White", "Grey", "Black", "Blue"],
-    answer: "Black",
-    wrong: ["White", "Grey", "Blue"],
+	question: "What was the only color the Model T was available in?",
+	answers: ["Black", "White", "Grey", "Blue"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "Black",
+	image: "assets/images/modelt.jpg"
 };
-
-//Which Manufacteurer started out making tractors?
 var question03 = {
-    question: "Which car manufactuerer started out making tractors?",
-    choices: ["Lamborgini", "Porsche", "Ford", "Chevrolet"],
-    answer: "Lamborghini",
-    wrong: ["Porsche", "Ford", "Chevrolet"],
+	question: "Which car manufactuerer started out making tractors?",
+	answers: ["Porsche", "Ford", "Chevrolet", "Lamborghini"],
+	values: ["incorrect", "incorrect", "incorrect", "correct"],
+	correct: "Lamborghini",
+	image: "assets/images/lambotractor.jpg"
 };
-
-//Which car Manufacteurer started out working for VW?
 var question04 = {
-    question: "Which car manufacteurer got his start by working for VW?",
-    choices: ["Audi", "BMW", "Mercedes Benz", "Porsche"],
-    answer: "Porsche",
-    wrong: ["Audi", "BMW", "Mercedes Benz"],
+	question: "Which car manufactuerer started out working for VW?",
+	answers: ["Audi", "BMW", "Porsche", "Mercedes Benz"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "Porsche",
+	image: "assets/images/ferry.jpg"
 };
-
-//Which car Manufacteurer has more 24 LeMans victories than any other?
 var question05 = {
-    question: "Which car manufactuerer has the most 24 Hour of LeMans victories?",
-    choices: ["Porsche", "Ferrari", "Ford", "Lamborghini"],
-    answer: "Porsche",
-    wrong: ["Ferrari", "Ford", "Lamborghini"],
+	question: "Which car manufacteurer has more 24 Hours of LeMans victories than any other?",
+	answers: ["Porsche", "Ferrari", "Ford", "Lamborghini"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "Porsche",
+	image: "assets/images/917.jpg"
 };
-
-//Which driver has the most Formula 1 World Championships?
 var question06 = {
-    qustion: "Which driver has the most F1 World Championships?",
-    choices: ["Mario Andretti", "Lewis Hamilton", "Michael Schumacher", "Ayrton Senna"],
-    answer: "Michael Schumacher",
-    wrong: ["Ayrton Senna", "Mario Andretti", "Lewis Hamilton"],
+	question: "Which NASCAR driver has the most Championships?",
+	answers: ["Dale Earnhardt Sr.", "Richard Petty", "Jimmie Johnson", "All of the above"],
+	values: ["incorrect", "incorrect", "incorrect", "correct"],
+	correct: "All of the above",
+	image: "assets/images/jimmiejohnson.jpg"
+};
+var question07 = {
+	question: "Which driver has won the most F1 World Championships?",
+	answers: ["Ayrton Senna", "Michael Schumacher", "Sebastian Vettel", "Lewis Hamilton"],
+	values: ["incorrect", "correct", "incorrect", "incorrect"],
+	correct: "Michael Schumacher",
+	image: "assets/images/michael.jpg"
+};
+var question08 = {
+	question: "What is the most expensive car ever sold at auciton?",
+	answers: ["Porsche 550 Spyder", "Bugatti Chiron", "Ferrari 250 GTO", "Mercedes 300SL Gullwing"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "Ferrari 250 GTO",
+	image: "assets/images/250GTO.jpg"
+};
+var question09 = {
+	question: "What is the longest racetrack in the world?",
+	answers: ["Nardo Test Circuit", "Monza", "Nurburgring", "Spa-Francorchamps"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "Nurburgring",
+	image: "assets/images/nurburgring.jpg"
+};
+var question10 = {
+	question: "The Ford GT40 gets its name because?",
+	answers: ["It's 40 in. tall", "It's 40 in. wide", "It's 40 in. long", "It's 40 years old"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "It's 40 in. tall",
+	image: "assets/images/gt40.jpeg"
+};
+var question11 = {
+	question: "Which car manufactuerer has the most F1 Constructors Titles?",
+	answers: ["McLaren", "Ferrari", "Williams", "Red Bull F1"],
+	values: ["incorrect", "correct", "incorrect", "incorrect"],
+	correct: "Ferrari",
+	image: "assets/images/f2004.jpg"
+};
+var question12 = {
+	question: "Which country is Bruce McLaren from?",
+	answers: ["New Zealand", "Australia", "England", "Scotland"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "New Zealand",
+	image: "assets/images/p1.jpg"
+};
+var question13 = {
+	question: "The Bugatti Chiron has how many turbos?",
+	answers: ["0", "1", "2", "4"],
+	values: ["incorrect", "incorrect", "incorrect", "correct"],
+	correct: "4",
+	image: "assets/images/chiron.jpg"
+};
+var question14 = {
+	question: "A NHRA Top Fuel drag car produces how much horsepower?",
+	answers: ["500", "800", "8000", "4000"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "8000",
+	image: "assets/images/nhra.jpg"
+};
+var question15 = {
+	question: "What is the first race of the NASCAR season?",
+	answers: ["Daytona 500", "Monaco GP", "Indy 500", "Coca-Cola 600"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "Daytona 500",
+	image: "assets/images/daytona.jpg"
+};
+var question16 = {
+	question: "Porsche was founded in which German city?",
+	answers: ["Berlin", "Weissach", "Frankfurt", "Stuttgart"],
+	values: ["incorrect", "incorrect", "incorrect", "correct"],
+	correct: "Stuttgart",
+	image: "assets/images/porschebadge.jpeg"
+};
+var question17 = {
+	question: "What is Mercedes Benz performance division?",
+	answers: ["Maybach", "AMG", "Brabus", "RDB"],
+	values: ["incorrect", "correct", "incorrect", "incorrect"],
+	correct: "AMG",
+	image: "assets/images/amg.jpg"
+};
+var question18 = {
+	question: "What is BMW's performace division?",
+	answers: ["Alpina", "AC Schnitzer", "M", "Dinan"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "M",
+	image: "assets/images/bmw.jpg"
+};
+var question19 = {
+	question: "Pikes Peak Hill Climb takes place in which state?",
+	answers: ["Washington", "Utah", "Colorado", "Montana"],
+	values: ["incorrect", "incorrect", "correct", "incorrect"],
+	correct: "Colorado",
+	image: "assets/images/pikespeak.jpg"
+};
+var question20 = {
+	question: "The 24 Hours of LeMans takes place in which country?",
+	answers: ["France", "Belgium", "Austria", "Switzerland"],
+	values: ["correct", "incorrect", "incorrect", "incorrect"],
+	correct: "France",
+	image: "assets/images/lemans919.jpg"
 };
 
-//Which NASCAR driver has the most championships?
-var question07 = {
-    question: "Which NASCAR driver has the most championships",
-    choices: ["Dale Earnhardt", "Jimmie Johnson", "Richard Petty", "All of the above."],
-    answer: "All of the above.",
-    wrong: ["Dale Earnhardt", "Jimmie Johnson", "Richard Petty"],
-}
+var questionsArray = [question01, question02, question03, question04, question05, question06, question07, question08, question09, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20];
 
-//The most expensive car ever sold at auction was?
-var question08 = {
-    question: "What is the most expensive car ever sold at auction?",
-    choices: ["Ferrari 250 GTO", "Porsche 550 Spyder", "Bugatti Chiron", "Mercedes 300SL Gullwing"],
-    answer: "Ferrari 250 GTO",
-    wrong: ["Porsche 550 Spyder", "Bugatti Chiron", "Mercedes 300SL Gullwing"],
-}
+// Functions
 
-//The longest race track in the world is call?
-var question09 = {
-    question: "What is the longest race track in the world?",
-    choices: ["Nardo Test Circuit", "Monza", "Nurburgring", "Spa-Francorchamps"],
-    answer: "Nurburgring",
-    wrong: ["Spa-Francorchamps", "Monza", "Nardo Test Circuit"],
-}
+	function start () {
+		$(".content-div").empty();
+		var startButton = $("<button>");
+		startButton.text("Start");
+		startButton.addClass("start btn btn-default answerBtn");
+		$(".content-div").append(startButton);
+	};
 
-//The Ford GT40 get its name because it is...?
-var question10 = {
-    question: "The Ford GT40 gets it's name because?",
-    choices: ["It is 40in wide.", "It is 40in long.", "It is 40 years old.", "It is 40in tall."],
-    answer: "It is 40in tall.",
-    wrong: ["It is 40in wide.", "It is 40in long.", "It is 40 years old."],
-}
+	function run() {
+      intervalId = setInterval(decrement, 1000);
+    };
 
-//Which Manufactuerer has the most Formula 1 World Championships?
-var question11 = {
-    question: "Which car manufactuerer has won the most F1 World Championships?",
-    choices: ["McLaren", "Williams", "Red Bull F1", "Ferrari"],
-    answer: "Ferrari",
-    wrong: ["McLaren", "Williams", "Red Bull F1"],
-}
+    function decrement() {
+      time--;
+      $(".timer-div").html("Time Remaining: " + time + " Seconds");
+      if (time == 0) {
+        if (arrayFinder < questionsArray.length-1) {
+        	setTimeout(function () {questionWrite(questionsArray[arrayFinder])}, 2000);
+        	solutionWrite(questionsArray[arrayFinder]);
+	    	$(".question-div").html("Incorrect!");
+        	stop();
+        	unanswered++;
+      	}
+      	else if (arrayFinder < questionsArray.length) {
+      		setTimeout(function () {endWrite(questionsArray[arrayFinder])}, 2000);
+      		solutionWrite(questionsArray[arrayFinder]);
+	    	$(".question-div").html("Incorrect!");
+        	stop();
+        	unanswered++;
+      	}
+      };
+    };
 
-//Bruce McLaren is from which country?
-var question12 = {
-    question: "Bruce McLaren, founder of McLaren is from what country?",
-    choices: ["England", "Australia", "Scotland", "New Zealand"],
-    answer: "New Zealand",
-    wrong: ["England", "Australia", "Scotland"],
-}
+    function stop() {
+      clearInterval(intervalId);
+    };
 
-//The Bugatti Veyron has how many turbos?
-var question13 = {
-    question: "The Bugatti Veyron has how many turbos?",
-    choices: ["2", "4", "1", "0"],
-    answer: "4",
-    wrong: ["2", "1", "0"],
-}
+	function questionWrite (obj) {
+		time = 20;
+		$(".timer-div").empty();
+		$(".timer-div").html("Time Remaining: " + time + " Seconds");
+		$(".question-div").empty();
+		$(".content-div").empty();
+		run ();
+		$(".question-div").html(obj.question);
+		for (var i = 0; i < obj.answers.length; i++) {
+			var answerButton = $("<button>");
+			answerButton.addClass("answer btn btn-default answerBtn");
+			answerButton.text(obj.answers[i]);
+			answerButton.attr("value", obj.values[i]);
+			$(".content-div").append(answerButton);
+			$(".content-div").append("<br>");
+		};
+	};
 
-//A NHRA Top Fuel drag car produces how much horsepower?
-var question14 = {
-    question: "A NHRA Top Fuel drag car produces how much horsepower?",
-    choices: ["800", "500", "8,000", "4,000"],
-    answer: "8,000",
-    wrong: ["800", "500", "4,000"],
-}
+	function solutionWrite (obj) {
+		$(".question-div").empty();
+		$(".content-div").empty();
+		$(".content-div").html("The correct answer was " + obj.correct + "<br>");
+		var characterImage = $("<img>");
+		characterImage.attr("height", "250");
+		characterImage.attr("src", obj.image);
+		characterImage.addClass("character")
+		$(".content-div").append(characterImage);
+		arrayFinder++;
+	};
 
-//What is the first race of the NASCAR season?
-var question15 = {
-    question: "What is the first race of the NASCAR season?",
-    choices: ["Indy 500", "Daytona 500", "Monaco GP", "Coca-Cola 600"],
-    answer: "Daytona 500",
-    wrong: ["Indy 500", "Monaco GP", "Coca-Cola 600"],
-}
+	function startWrite () {
+		questionWrite(question01);
+	};
 
-//Porsche started in which German city?
-var question16 = {
-    question: "Porschce was started in which German city?",
-    choices: ["Stuttgart", "Berlin", "Weissach", "Frankfurt"],
-    answer: "Stuttgart",
-    wrong: ["Berlin", "Weissach", "Frankfurt"],
-}
+	function answerSelect () {
+		stop();
+		if ($(this).attr("value") == "correct") {
+			solutionWrite(questionsArray[arrayFinder]);
+			$(".question-div").html("Correct!");
+			correct++;
+			if (arrayFinder < questionsArray.length) {
+				setTimeout(function () {questionWrite(questionsArray[arrayFinder])}, 2000);
+			}
+			else if (arrayFinder < questionsArray.length+1) {
+		        setTimeout(function () {endWrite(questionsArray[arrayFinder])}, 2000);
+      		}
+		}
+		else if ($(this).attr("value") == "incorrect") {
+			solutionWrite(questionsArray[arrayFinder]);
+			$(".question-div").html("Incorrect!");
+			incorrect++;
+			if (arrayFinder < questionsArray.length) {
+				setTimeout(function () {questionWrite(questionsArray[arrayFinder])}, 2000);
+			}
+			else if (arrayFinder < questionsArray.length+1) {
+		        setTimeout(function () {endWrite(questionsArray[arrayFinder])}, 2000);
+      		}
+		}
+	};
 
-//What is Mercedes performance division?
-var question17 = {
-    question: "What is the the name of Mercedes performance division?",
-    choices: ["Maybach", "Sprinter", "BlueTec", "AMG"],
-    answer: "AMG",
-    wrong: ["Maybach", "Sprinter", "BlueTec"],
-}
+	function endWrite () {
+		$(".question-div").empty();
+		$(".content-div").empty();
+		$(".question-div").html("Here's how you did!");
+		$(".content-div").html("<p> Correct: " + correct + "</p>" + "<p> Incorrect: " + incorrect + "</p>" + "<p> Unanswered: " + unanswered + "</p>");
+		var resetButton = $("<button>");
+		resetButton.addClass("reset btn btn-default answerBtn");
+		resetButton.text("Start Over?");
+		$(".content-div").append(resetButton);
+	}
 
-//What is BMW's performance division?
-var question18 = {
-    question: "What is the name of BMW's performance division?",
-    choices: ["Alpina", "AC Schnitzer", "M", "Dinan"],
-    answer: "M",
-    wrong: ["Alpina", "AC Schnitzer", "Dinan"],
-}
+	function resetClick () {
+		arrayFinder = 0;
+		incorrect = 0;
+		correct = 0;
+		unanswered = 0;
+		startWrite();
+	}
 
-//The Pike Peak Hill Climb takes place in what state?
-var question19 = {
-    question: "The Pikes Peak Hill Climb take place in what state?",
-    choices: ["Washington", "Colorado", "Montana", "Utah"],
-    answer: "Colorado",
-    wrong: ["Washington", "Montana", "Utah"],
-}
+	$(document).on("click", ".start", startWrite);
 
-//The 24 Hour of LeMans takes place in which country?
-var question20 = {
-    question: "The 24 of LeMans takes place in which country?",
-    choices: ["France", "Belgium", "Austria", "Switzerland"],
-    answer: "France",
-    wrong: ["Belgium", "Austria", "Switzerland"],
-}
-//Guesses
-var guess;
+	$(document).on("click", ".answer", answerSelect);
 
-//Right Answer
-var rightAnswer;
+	$(document).on("click", ".reset", resetClick);
+// Running Code
 
-//Wrong Answer
-var wrongAnswer;
-
-//Unanswered Questions
-var unanswered;
-
-//Timer
-var count = 120;
-
-//Restart Game
-var reset;
-
-
-//Hide Quiz Page at Start and only "Intro"
-//start click function
-//start function = shows all questions, shows and starts clock 
-//coundown
-
-
-//Reset Game state for every new game
-
-//On load / show welcome screen / hide quiz form
-
-//Player presses start button (build timer into button)
-
-//Player chooses which radio button they think is correct
-
-//The answer is stored till later
-
-//Player clicks submit button
-
-//Game results are shown / hide quiz / have replay button.
-
-//THIS IS THE GAME STATE
-//
-$( document ).ready(function() {
-    console.log( "ready!" ); 
-
-//Function to show quiz questions
-function quiz () {
-//Start interval timer
-//Reset guesses to 0
-//Reset right answers to 0
-//Reset wrong answer to 0
-//Reset unanswered questions to 0
-}
-
-//Click function for Player input
-function playerInput () {
-    //Player can only guess one question at a time
-    //Once player guesses, store answer till the end.
-}
-
-//Results of Player function
-function results () {
-    //Hide quiz questions
-    //Show results of quiz
-    //Prime reset button
-}
-
-});
-
-$(document).ready(function(){
-    //Console Log READY
-    console.log("READY");
-    //Start Game
-    $("#start-button").click(function(){
-  // ----------------------------------------------------------------
-   // declaring the value for the timer to 60 seconds
-   // hide the start button and rules
-        var number = 50;
-        alert("The let game begin!");
-      $("#start-button").on("click", start);  // starts the games 
-      $("#submit").on("click", finish);  // submits answers and finishes the game
-      $("#restart").on("click", restart);  // restarts the games 
-  // ----------------------------------------------------------------
-  // functions
-      function start(){
-          counter = setInterval(timer, 1000);
-          showMe(".question");
-          showMe(".answers");
-          showMe("#submit");
-          hideMe("#start-button");
-          hideMe(".rules");
-          hideMe("#restart");
-          hideMe("#results");
-      }
-      function timer(){
-        number-- // decrements the timer by 1
-        $("#show-number").html("<h2>" + number + "</h2>" );
-        if (number === 0){
-          alert("Times Up!")
-          stop(); // calls the stop function
-        }
-      }
-      function stop(){
-          clearInterval(counter); // stops the timer
-          $("#results").show();
-          $("#restart").show();
-          $(".question").hide();
-          $(".answers").hide();
-          $("#submit").hide();
-      }
-      function finish(){
-          number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
-          clearInterval(counter); // stops the timer
-          timer();
-      }
-  
-      function restart(){
-          number = 50;
-          start();
-      }
-  
-      function hideMe(e) {
-          $(e).hide();
-      }
-      function showMe(e) {
-          $(e).show();
-      }
-  
-  // ----------------------------------------------------------------
-  //calling functions
-        start(); // calls the start function
-    });
-  });
+start();
