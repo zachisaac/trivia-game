@@ -1,0 +1,40 @@
+/*Car Trivia Game*/
+
+body {
+    background-image: url(../images/tic-tac-toe.png);
+}
+
+h1 {
+    color: rgb(28, 205, 250);
+    margin: 30px;
+    font-family: 'Pacifico', cursive;
+}
+
+h3 {
+    color: rgb(28, 205, 250);
+    margin: 15px;
+    font-family: 'Pacifico', cursive;
+}
+
+.timer-div {
+    color: rgb(250, 49, 49);
+    margin: 15px;
+    font-family: 'Exo', sans-serif;
+}
+
+.question-div {
+    margin: 15px;
+    font-family: 'Exo', sans-serif;
+}
+
+.content-div {
+    margin: 15px;
+    font-family: 'Exo', sans-serif;
+    
+}
+
+footer {
+    color: rgb(28, 205, 250);
+    margin: 350px;
+    font-family: 'Pacifico', cursive;
+}
