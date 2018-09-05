@@ -15,10 +15,12 @@
 
 <body>
     <div class="container">
+        <!--Car Triva Header-->
         <div class="row">
             <div class="col-12">
                 <h1>Car Stuff Trivia</h1>
             </div>
+            <!--Trivia Game Conditions-->
             <div class="row">
                 <div class="col-12">
                     <h4>Welcome to my Car Trivia Game.</h4>
@@ -26,25 +28,48 @@
                     <h4>Good Luck!</h4>
                 </div>
             </div>
+            <!--Time Left Countdown-->
             <div class="row">
                 <div class="col-12">
-                    <div>
-                        <input type="image" src="assets/images/startengine.jpg" name="saveForm" class="button" id="start">
-                    </div>
+                    <div id="timeLeft"></div>
                 </div>
             </div>
+            <!--Questions Block-->
+            <div class="row">
+                <div class="col-12">
+                    <div id="questionBlock"></div>
+                </div>
+            </div>
+            <!--Answers Block-->
+            <div class="row">
+                <div class="col-12">
+                    <div id="answerBlock"></div>
+                </div>
+            </div>
+            <!--Buttons-->
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-success" id="start">Start Game</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary" id="reset">Play Again?</button>
+                </div>
+            </div>
+
+            <!--Footer-->
+
         </div>
 
 
-    </div>
 
 
-
-
-    <!--jQuery CDN-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--Javascript Link-->
-    <script src="assets/javascript/app.js"></script>
+        <!--jQuery CDN-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--Javascript Link-->
+        <script src="assets/javascript/app.js"></script>
 
 </body>
 
