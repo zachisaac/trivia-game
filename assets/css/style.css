@@ -8,12 +8,14 @@ h1 {
     color: rgb(28, 205, 250);
     margin: 30px;
     font-family: 'Pacifico', cursive;
+    font-size: 50px;
 }
 
 h3 {
     color: rgb(28, 205, 250);
     margin: 15px;
     font-family: 'Pacifico', cursive;
+    font-size: 30px;
 }
 
 .timer-div {
@@ -35,6 +37,6 @@ h3 {
 
 footer {
     color: rgb(28, 205, 250);
-    margin: 350px;
+    margin: 250px;
     font-family: 'Pacifico', cursive;
 }
